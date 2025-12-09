@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-slim
+FROM eclipse-temurin:8-jre-alpine
 VOLUME /tmp
 ADD target/devOpsDemo-0.0.1-SNAPSHOT.jar app.jar
 
