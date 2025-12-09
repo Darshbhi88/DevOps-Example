@@ -42,4 +42,8 @@ node {
         // Push to Docker Hub
         sh "docker push ${repoName}"
     }
+
+    stage('Run Application') {
+    sh "docker run -d -p 2222:2222 vickeyyvickey/myapplication"
+   }
 }
