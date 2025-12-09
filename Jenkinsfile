@@ -8,7 +8,7 @@ node {
     def dockerImageTag = "devopsexample${env.BUILD_NUMBER}"
 
     stage('Clone Repo') {
-        git 'https://github.com/vikas4cloud/DevOps-Example.git'
+        git 'https://github.com/Darshbhi88/DevOps-Example.git'
         // Set Maven and Java tool references
         mvnHome = tool 'maven-3.5.2'
         javaHome = tool 'JDK8'
