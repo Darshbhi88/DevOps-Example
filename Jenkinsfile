@@ -32,7 +32,14 @@ node {
     }
 
     stage('Docker push'){
-        sh "docker tag 33e263f46ead vickeyyvickey/myapplication"
-        sh "docker push vickeyyvickey/myapplication"
+        // Extract the image ID for the devopsexample:${BUILD_NUMBER} image
+        def imageId = sh(script: "docker images --format '{{.ID}}' devopsexample:${env.BUILD_NUMBER}", returnStdout: true).trim()
+        def repoName = "vickeyyvickey/myapplication"
+        
+        // Tag the image
+        sh "docker tag ${imageId} ${repoName}"
+        
+        // Push to Docker Hub
+        sh "docker push ${repoName}"
     }
 }
